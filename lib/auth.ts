@@ -1,12 +1,13 @@
 'use client';
 
+import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
-import Cookies from 'js-cookie';
+
 
 export function useLogout(){
     const router = useRouter()
     return () => {
-        Cookies.remove('token')
+        deleteCookie('token')
         router.push('/login');
     }
 }
